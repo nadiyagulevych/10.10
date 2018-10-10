@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello world</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="main.css">
+
+		</head>
+		
+	<body>
+	</body>
+<script>
+
+	function range(start, end, step = 1){
+  if(start && end) {
+    var length = (Math.abs(end - start) + 1) / Math.abs(step);
+    var rangeInternal = [];
+    for(var i=0; i < length; i++) {
+        rangeInternal[i] = start + i * step; 
+    }
+    return rangeInternal;
+  }
+}
+function sum(integers){
+  if(integers && integers.length){ // 
+    var sum = 0;
+    for(var i=0; i < integers.length; i++){
+      sum += integers[i];
+    }
+    return sum;
+  }
+}
+console.log(range(5,2,-1));
+console.log(range(1,10,2));
+console.log(sum(range(5,2,-1)));
+console.log(sum(range(1,10,1)));
+console.log(range(-4,10));
+
+//=======================================
+//=======================================
+
+function countBs(str){
+  if(str && str.length > 0) {
+    var count = 0;
+    for(var i=0; i < str.length; i++){
+      if(str.charAt(i) === "B"){
+        count += 1;
+      }
+    }
+    return count;
+  }
+}
+function countChar(str, char1){
+  if(str && str.length > 0) {
+    var count = 0;
+    for(var i=0; i < str.length; i++){
+      if(str.charAt(i) === char1){
+        count += 1;
+      }
+    }
+    return count;
+  }
+}
+var str = "B and D + CCCCC";
+var char1 = "C";
+var char2= 'B'
+
+console.log("There are: " + countBs(str) + " " + char2 + " in the string  - \"" + str + "\"");
+console.log("There are: " + countChar(str,char1) + " " + char1 + " in the string  - \"" + str + "\"");
+
+//=======================================
+//=======================================
+
+function every(array, func){
+  if(array && array.length && (typeof func) == "function"){ 
+    for(var i=0;i < array.length; i++){
+      if(func(array[i]) === false){
+        return false;
+      }
+    }
+    return true;
+  }
+}
+function some(array, func){
+  if(array && array.length && (typeof func) == "function"){ 
+    for(var i=0;i < array.length; i++){
+      if(func(array[i]) === true){ 
+        return true;
+      }
+    }
+    return false ;
+  }
+}
+var is5 = function(arg){
+  if(Number.isInteger(arg) && arg === 5){
+    return true;
+  }
+  return false;
+}
+
+var array1 = [1,2,3,4,5];
+var array2 = [5,5,5,5];
+
+console.log("every is " + every(array2,is5) + " in array " + array2);
+console.log("some is " + some(array1,is5) + " in array " + array1)
+
+
+</script>
+
+</html>
